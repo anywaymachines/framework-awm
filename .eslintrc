@@ -1,0 +1,91 @@
+{
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"jsx": true,
+		"useJSXTextNode": true,
+		"ecmaVersion": 2018,
+		"sourceType": "module",
+		"project": "./tsconfig.json"
+	},
+	"ignorePatterns": [
+		"/out",
+		"/engine/transformer/out"
+	],
+	"plugins": [
+		"@typescript-eslint",
+		"roblox-ts",
+		"prettier",
+		"no-relative-import-paths",
+		"import",
+		"unused-imports"
+	],
+	"extends": [
+		"eslint:recommended",
+		"plugin:@typescript-eslint/recommended",
+		"plugin:roblox-ts/recommended",
+		"plugin:prettier/recommended"
+	],
+	"rules": {
+		"no-inner-declarations": 0,
+		"roblox-ts/no-array-pairs": [ "off" ],
+		"roblox-ts/lua-truthiness": [ "off" ],
+		"import/order": [
+			"warn",
+			{
+				"groups": [ "builtin", "external", [ "internal", "parent", "sibling", "index" ], "object", "type" ],
+				"alphabetize": {
+					"order": "asc",
+					"caseInsensitive": true
+				}
+			}
+		],
+		"@typescript-eslint/consistent-type-imports": [ "warn",
+			{
+				"fixStyle": "separate-type-imports",
+				"prefer": "type-imports"
+			}
+		],
+		"import/consistent-type-specifier-style": [
+			"warn",
+			"prefer-top-level"
+		],
+		"unused-imports/no-unused-imports": "warn",
+		"prettier/prettier": [
+			"warn",
+			{
+				"semi": true,
+				"trailingComma": "all",
+				"singleQuote": false,
+				"printWidth": 120,
+				"tabWidth": 4,
+				"useTabs": true,
+				"endOfLine": "lf"
+			}
+		], "no-relative-import-paths/no-relative-import-paths": [
+			"warn",
+			{
+				"rootDir": "src",
+				"allowSameFolder": false
+			}
+		], "@typescript-eslint/explicit-member-accessibility": [
+			"warn",
+			{
+				"accessibility": "no-public"
+			}
+		], "@typescript-eslint/no-explicit-any": [
+			"error",
+			{
+				"ignoreRestArgs": true
+			}
+		], "@typescript-eslint/no-this-alias": [ "off", { } ],
+		"require-jsdoc": [ "off", {
+				"require": {
+					"FunctionDeclaration": true,
+					"MethodDefinition": true,
+					"ClassDeclaration": true,
+					"ArrowFunctionExpression": false,
+					"FunctionExpression": false
+				}
+			} ]
+	}
+}
