@@ -5,5 +5,4 @@ updates:
       schedule:
           interval: "daily"
       directory: /
-      pull-request-branch:
-          name: "main"
+      target-branch: "main"
